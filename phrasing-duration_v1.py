@@ -1,5 +1,4 @@
 import datetime as DT
-import dateutil as DU
 import calendar
  
 def duration(input_T, accu="normal"):
