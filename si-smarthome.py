@@ -7,12 +7,11 @@ import logging, ssl, calendar, xml.etree.ElementTree as ET
 import holidays
 from datetime import datetime
 
-os.chdir('/home/pi/siSH')
+os.chdir('/home/pi/si-smarthome')
 exec(compile(open('support.py',        "rb").read(), 'support.py',        'exec'))
 exec(compile(open('special.py',        "rb").read(), 'special.py',        'exec'))
 exec(compile(open('type-update.py',    "rb").read(), 'type-update.py',    'exec'))
 exec(compile(open('smart-routines.py', "rb").read(), 'smart-routines.py', 'exec'))
-exec(compile(open('smart-deebot.py',   "rb").read(), 'smart-deebot.py',   'exec'))
 exec(compile(open('room-mode.py',      "rb").read(), 'room-mode.py',      'exec'))
 exec(compile(open('write_visu.py',     "rb").read(), 'write_visu.py',     'exec'))
 exec(compile(open('dashboard.py',      "rb").read(), 'dashboard.py',      'exec'))
@@ -64,7 +63,7 @@ ELEM_DATA['3/0/10']['pos1'] = "weg"
 ELEM_DATA['3/0/10']['pos2'] = "weg"
 
 # open pipe to KNX bus and log-file
-knx_bus = subprocess.Popen(['groupsocketlisten', 'ip:192.168.22.65'], \
+knx_bus = subprocess.Popen(['knxtool groupsocketlisten', 'ip:192.168.22.65'], \
           stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 knx_t = open(knxt_file, 'a')
 
