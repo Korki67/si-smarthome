@@ -99,9 +99,9 @@ def auto_lights():
           ELEM_DATA[L]['block']['until'] = -1
           BLINDS[L][1] = -1
         elif ELEM_DATA[L]["ID"][0:3] == 'Dim':
-          os.system('groupwrite  ip:192.168.22.65 ' + L + ' 0 > /dev/null')
+          os.system('knxtool groupwrite  ip:192.168.22.65 ' + L + ' 0 > /dev/null')
         else:
-          os.system('groupswrite ip:192.168.22.65 ' + L + ' 0 > /dev/null')
+          os.system('knxtool groupswrite ip:192.168.22.65 ' + L + ' 0 > /dev/null')
         verbose_print(V,"auto-Light {:s} turned off at {:.0f}".format(L, sun_act))
     
       elif (dura < 0.001) or (dura > 10.0) or ((ELEM_DATA[knx_group]['type'] == "mo_li") and knx_change):
@@ -128,13 +128,13 @@ def auto_lights():
                ((lux >  -1) and (FLAT_DATA["bright"]["act"] > lux)):
               if ELEM_DATA[L]["act"] != 0:
                 if ELEM_DATA[L]["ID"][0:3] == 'Dim':
-                  os.system('groupwrite ip:192.168.22.65 ' + L + ' 0 > /dev/null')
+                  os.system('knxtool groupwrite ip:192.168.22.65 ' + L + ' 0 > /dev/null')
                 else:
-                  os.system('groupswrite  ip:192.168.22.65 ' + L + ' 0 > /dev/null')
+                  os.system('knxtool groupswrite  ip:192.168.22.65 ' + L + ' 0 > /dev/null')
                 verbose_print(V,"auto-Light {:s} turned off at {:.0f}".format(L, sun_act))
             else:
               if ELEM_DATA[L]["act"] != val:
-                if val == 1: os.system('groupswrite ip:192.168.22.65 ' + L + ' 1'               + ' > /dev/null')
-                else:        os.system('groupwrite  ip:192.168.22.65 ' + L + ' ' + hex(val)[2:] + ' > /dev/null')
+                if val == 1: os.system('knxtool groupswrite ip:192.168.22.65 ' + L + ' 1'               + ' > /dev/null')
+                else:        os.system('knxtool groupwrite  ip:192.168.22.65 ' + L + ' ' + hex(val)[2:] + ' > /dev/null')
                 verbose_print(V,"auto-Light {:s} turned on from {:.0f}".format(L, ELEM_DATA[L]["act"]))
 

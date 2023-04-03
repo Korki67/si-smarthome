@@ -187,14 +187,14 @@ def blinds_time_sim():
       if   (time.time()-BLINDS[R][7] > 2.0) and (BLINDS[R][11] > BLINDS[R][9] + stop_threshold*1.5):
         verbose_print(2, "Raff 1 auto {:s} target {:.2f} actual {:.2f}".format(R, BLINDS[R][11], BLINDS[R][9]))
         verbose_print(3, 'x) sending groupswrite ip:192.168.22.65 ' + R + " 0")
-        os.system('groupswrite ip:192.168.22.65 ' + R + " 0 > /dev/null &")
+        os.system('knxtool groupswrite ip:192.168.22.65 ' + R + " 0 > /dev/null &")
         BLINDS[R][7] = time.time()
 
       # if target requires Raffstore to move down = 1
       elif (time.time()-BLINDS[R][7] > 2.0) and (BLINDS[R][11] < BLINDS[R][9] - stop_threshold*1.5):
         verbose_print(2, "Raff 2 auto {:s} target {:.2f} actual {:.2f}".format(R, BLINDS[R][11], BLINDS[R][9]))
         verbose_print(3, 'y) sending groupswrite ip:192.168.22.65 ' + R + " 1")
-        os.system('groupswrite ip:192.168.22.65 ' + R + " 1 > /dev/null &")
+        os.system('knxtool groupswrite ip:192.168.22.65 ' + R + " 1 > /dev/null &")
         BLINDS[R][7] = time.time()
 
       # if Raffstore not moving since 2.5 sec then target was too close to actual
@@ -248,14 +248,14 @@ def blinds_time_sim():
               (BLINDS[R][9] > 0.7):
             n = 0
             n_wait = 0.0
-          verbose_print(4, './angle ' + R2 + ' 0 ' + str(1+n) + ' ' + str(n_wait) + ' > /dev/null &')
-          os.system('./angle ' + R2 + ' 0 ' + str(1+n) + ' ' + str(n_wait) + ' > /dev/null &')
+          verbose_print(4, './knx_angle ' + R2 + ' 0 ' + str(1+n) + ' ' + str(n_wait) + ' > /dev/null &')
+          os.system('./knx_angle ' + R2 + ' 0 ' + str(1+n) + ' ' + str(n_wait) + ' > /dev/null &')
         else:
           if (abs(BLINDS[R][9] - BLINDS[R][11]) > 0.07) or (BLINDS[R][9] > 0.7):
             n = n_max
             n_wait = 0.0
-          verbose_print(4, './angle ' + R2 + ' 1 ' + str(1+n_max-n) + ' ' + str(n_wait) + ' > /dev/null &')
-          os.system('./angle ' + R2 + ' 1 ' + str(1+n_max-n) + ' ' + str(n_wait) + ' > /dev/null &')
+          verbose_print(4, './knx_angle ' + R2 + ' 1 ' + str(1+n_max-n) + ' ' + str(n_wait) + ' > /dev/null &')
+          os.system('./knx_angle ' + R2 + ' 1 ' + str(1+n_max-n) + ' ' + str(n_wait) + ' > /dev/null &')
 
         # invalidate target [11] if actual position [9] is reasonably close to it
         if abs(BLINDS[R][9] - BLINDS[R][11]) <= 0.07: BLINDS[R][11] = -1

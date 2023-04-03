@@ -456,8 +456,10 @@ def load_weather():
 
   # URL oeffnen und XML Daten einlesen
   # &u=c am Ende fuer Wetter in Grad Celsius
+  verbose_print(1,"reading & waiting for weather data ...")
+  os.system('weather/get-openweather > /dev/null 2>&1 &')
   try:
-    f = open('weather.xml', 'r')
+    f = open('weather/weather.xml', 'r')
     tree = f.read()
     tree = '<response>\n' + tree + '</response>\n'
     f.close()
@@ -735,17 +737,17 @@ def run_macro(group, value, source):
         for R in BLINDS:
           if (ELEM_DATA[R]["room"] == int(content)) and (BLINDS[R][0][-1] == "a"):
             if (media == "TVday") or ((value == 0) and (ELEM_DATA[group]["last_act"] == 1)):
-              os.system('groupswrite ip:192.168.22.65 ' + R + ' ' + str(value) + ' > /dev/null')
+              os.system('knxtool groupswrite ip:192.168.22.65 ' + R + ' ' + str(value) + ' > /dev/null')
             BLINDS[R][1] = time.time() + conf_data["Blinds"]["movie_time"] * 60.0*60. * float(value*2-1)
 
       elif typus == "man":
         if source == "hardware":
-          os.system('groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
-          verbose_print(V, 'groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
+          os.system('knxtool groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
+          verbose_print(V, 'knxtool groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
     
       elif typus == "eib":
-        os.system('groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
-        verbose_print(V, 'groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
+        os.system('knxtool groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
+        verbose_print(V, 'knxtool groupswrite ip:192.168.22.65 ' + content + ' ' + str(value) + ' > /dev/null &')
     
       elif typus == "url":
         if len(logic) == 1:

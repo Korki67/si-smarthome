@@ -1,0 +1,318 @@
+2023.04.03 16:36:47: Variables fully loaded.
+2023.04.03 16:38:47: Variables fully loaded.
+2023.04.03 16:38:47: config file read.
+2023.04.03 16:40:27: Variables fully loaded.
+2023.04.03 16:40:28: config file read.
+2023.04.03 16:40:53: Variables fully loaded.
+2023.04.03 16:40:53: config file read.
+2023.04.03 16:42:25: Variables fully loaded.
+2023.04.03 16:42:26: config file read.
+2023.04.03 16:42:26: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:43:26: Variables fully loaded.
+2023.04.03 16:43:27: config file read.
+2023.04.03 16:43:27: Raffstore set to auto mode by time_out: 2/0/0
+2023.04.03 16:43:27: Raffstore set to auto mode by time_out: 2/1/0
+2023.04.03 16:43:27: Raffstore set to auto mode by time_out: 2/5/0
+2023.04.03 16:43:28: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:43:29: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:43:34: Triangulation 1 Arbeit          : 99, 99, 99,  0, 15 OK     45
+2023.04.03 16:43:42: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:43:42: KNX hardware 1/0/1    Heizung Bad Kinder        type heat     act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:43:51: KNX hardware 1/0/2    Heizung Fiona             type heat     act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:43:51: KNX virtual  8/0/1    Feuchtigkeit Kueche       type humi     act  37.2 alter  25.5 update 1 smart 0 dash 1 special 0
+2023.04.03 16:43:51: KNX virtual  8/0/20   Umgebungsdruck            type amb_p    act  1021 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 16:43:52: KNX virtual  8/0/15   Feuchtigkeit Lorzing      type humi     act  43.7 alter  16.0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:43:53: KNX virtual  8/0/9    Feuchtigkeit Gaeste WC    type humi     act  44.1 alter  22.1 update 1 smart 0 dash 1 special 1
+2023.04.03 16:43:55: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:43:58: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:01: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   622 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   744 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:01: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   946 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:01: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:05: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1100 alter   110 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:07: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:22: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:28: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:32: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:34: KNX virtual  8/0/16   Feuchtigkeit Heizung      type humi     act  13.2 alter  26.1 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:36: KNX virtual  8/0/2    Feuchtigkeit Bad Kinder   type humi     act  48.9 alter  22.4 update 1 smart 0 dash 1 special 0
+2023.04.03 16:44:50: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:57: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:57: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:44:58: KNX virtual  8/0/8    Feuchtigkeit Bad Eltern   type humi     act  30.3 alter  17.9 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:00: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   624 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   742 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:01: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   946 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:01: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:04: KNX hardware 1/0/3    Heizung Delia             type heat     act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:05: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1100 alter   110 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:17: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:45:22: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:45:23: KNX virtual  1/2/10   Kuehlschrank oben         type fridge   act   6.9 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:23: KNX virtual  1/2/10   Kuehlschrank oben         type fridge   act  -9.5 alter     1 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:23: KNX virtual  1/2/10   Kuehlschrank oben         type fridge   act  10.5 alter     2 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:23: KNX virtual  1/2/11   Gefrierschrank oben       type fridge   act -11.1 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:23: KNX virtual  1/2/11   Gefrierschrank oben       type fridge   act -27.5 alter     1 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:23: KNX virtual  1/2/11   Gefrierschrank oben       type fridge   act  -0.5 alter     2 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:26: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:45:44: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:45:47: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:45:51: KNX virtual  8/0/1    Feuchtigkeit Kueche       type humi     act  37.1 alter  25.6 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:51: KNX virtual  8/0/20   Umgebungsdruck            type amb_p    act  1021 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 16:45:52: KNX virtual  8/0/15   Feuchtigkeit Lorzing      type humi     act  43.8 alter  16.0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:45:53: KNX virtual  8/0/9    Feuchtigkeit Gaeste WC    type humi     act  44.0 alter  22.1 update 1 smart 0 dash 1 special 1
+2023.04.03 16:45:56: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   742 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:01: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   624 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:01: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   946 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:01: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:05: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1100 alter   110 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:10: KNX hardware 1/0/7    Heizung Bad Eltern        type heat     act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:12: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:13: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:25: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:34: KNX virtual  8/0/16   Feuchtigkeit Heizung      type humi     act  13.3 alter  26.0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:36: KNX virtual  8/0/2    Feuchtigkeit Bad Kinder   type humi     act  48.9 alter  22.4 update 1 smart 0 dash 1 special 0
+2023.04.03 16:46:38: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:39: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:54: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:46:57: KNX virtual  8/0/8    Feuchtigkeit Bad Eltern   type humi     act  30.2 alter  17.9 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   742 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:01: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   624 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:01: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   951 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:01: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:03: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:47:04: KNX hardware 1/3/0    Temperatur Wohn Sued      type temp     act  22.7 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 16:47:05: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1100 alter   110 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:06: KNX virtual  8/0/14   Feuchtigkeit Garten       type humi     act  34.0 alter  12.4 update 1 smart 0 dash 1 special 0
+2023.04.03 16:47:06: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:47:24: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:47:28: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:47:33: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 16:47:37: KNX virtual  1/4/1    Bewegung Kueche           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:45:54: Variables fully loaded.
+2023.04.03 19:45:54: config file read.
+2023.04.03 19:45:59: KNX virtual  8/0/1    Feuchtigkeit Kueche       type humi     act  35.3 alter  24.7 update 1 smart 0 dash 1 special 0
+2023.04.03 19:45:59: KNX virtual  8/0/20   Umgebungsdruck            type amb_p    act  1021 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:46:00: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:00: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:00: KNX virtual  8/0/9    Feuchtigkeit Gaeste WC    type humi     act  41.6 alter  21.7 update 1 smart 0 dash 1 special 1
+2023.04.03 19:46:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   454 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:02: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   441 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:02: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   708 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:14: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:14: Triangulation 1 Delia           : 99, 99, 99,  0, 99 ERR   189
+2023.04.03 19:46:14: KNX virtual  8/0/15   Feuchtigkeit Lorzing      type humi     act  43.6 alter  16.0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:14: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:15: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:15: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:15: Triangulation 1 Delia           : 99, 99, 99,  0, 99 ERR   189
+2023.04.03 19:46:16: Triangulation 1 Arbeit          : 99, 99, 99,  0, 12 OK     24
+2023.04.03 19:46:17: KNX hardware 1/3/5    Temperatur Wohn Nord      type temp     act  22.5 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:46:21: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:25: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1100 alter   107 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:30: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:31: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:34: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:35: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:42: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:42: KNX virtual  8/0/16   Feuchtigkeit Heizung      type humi     act  13.6 alter  25.8 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:43: KNX virtual  8/0/2    Feuchtigkeit Bad Kinder   type humi     act  47.4 alter  22.6 update 1 smart 0 dash 1 special 0
+2023.04.03 19:46:45: Triangulation 2 Wohn Nord       : 99, 99, 99, 99,  0 OK     25
+2023.04.03 19:46:52: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:56: KNX hardware 1/3/1    Temperatur Kinderbad      type temp     act  23.1 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:46:56: KNX hardware 1/3/0    Temperatur Wohn Sued      type temp     act  23.1 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:46:59: KNX hardware 1/3/2    Temperatur Fiona          type temp     act  18.5 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:46:59: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:46:59: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   458 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:01: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   441 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:01: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   705 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:01: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:02: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:03: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:04: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:04: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:05: KNX virtual  8/0/8    Feuchtigkeit Bad Eltern   type humi     act  38.4 alter  18.1 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:09: KNX virtual  8/0/14   Feuchtigkeit Garten       type humi     act  39.0 alter  12.9 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:09: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:13: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:14: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:15: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:15: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:18: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:19: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:19: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:24: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:24: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:25: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1100 alter   107 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:28: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:29: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:29: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:29: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:31: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:31: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:33: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:33: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:34: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:34: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:35: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:42: alexa dev WohnSued radio pause speak Bis spaeter => MediaOK 1 weight 6
+2023.04.03 19:47:42: KNX virtual  4/3/1    Modus Licht Wohn Sued     type li_mo    act     0 alter     0 update 0 smart 1 dash 0 special 0
+2023.04.03 19:47:43: alexa dev WohnSued radio pause speak Bis spaeter => MediaOK 1 weight 6
+2023.04.03 19:47:43: KNX virtual  4/3/1    Modus Licht Wohn Sued     type li_mo    act     0 alter     0 update 0 smart 1 dash 0 special 0
+2023.04.03 19:47:43: KNX virtual  0/0/2    Deckenleuchten Wohn Sued  type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:43: KNX virtual  0/0/3    Deckenleuchten Wohn Sued  type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:44: KNX virtual  0/0/4    Bilderleuchten Wohn Sued  type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:44: KNX virtual  0/2/0    Dimmer 1a Wert            type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:44: KNX virtual  0/2/1    Dimmer 1b Wert            type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:44: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:44: KNX virtual  20/0/72  Licht Ecke Wohn Sued      type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:45: KNX virtual  0/0/2    Deckenleuchten Wohn Sued  type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:45: KNX virtual  0/0/3    Deckenleuchten Wohn Sued  type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:45: KNX virtual  0/0/4    Bilderleuchten Wohn Sued  type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:45: KNX virtual  0/2/0    Dimmer 1a Wert            type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:45: KNX virtual  0/2/1    Dimmer 1b Wert            type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:45: KNX virtual  20/0/66  Lampe Kuehlschrank oben   type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:46: KNX virtual  20/0/72  Licht Ecke Wohn Sued      type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:46: KNX virtual  20/0/66  Lampe Kuehlschrank oben   type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:46: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:46: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:46: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:46: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:46: KNX virtual  20/0/72  Licht Ecke Wohn Sued      type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:46: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:46: KNX virtual  20/0/72  Licht Ecke Wohn Sued      type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:47: KNX virtual  20/0/66  Lampe Kuehlschrank oben   type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:48: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:49: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:50: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:50: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:51: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:47:54: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:55: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:55: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:55: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:55: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:57: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:57: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:47:58: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:47:59: KNX virtual  8/0/1    Feuchtigkeit Kueche       type humi     act  34.4 alter  24.5 update 1 smart 0 dash 1 special 0
+2023.04.03 19:47:59: KNX virtual  8/0/20   Umgebungsdruck            type amb_p    act  1021 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:48:00: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:48:00: KNX virtual  8/0/15   Feuchtigkeit Lorzing      type humi     act  43.6 alter  16.0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:00: Info: fan in bad2 switched ON as humidity is high.
+2023.04.03 19:48:00: KNX virtual  8/0/9    Feuchtigkeit Gaeste WC    type humi     act  41.6 alter  21.8 update 1 smart 0 dash 1 special 1
+2023.04.03 19:48:01: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:48:01: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   458 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:01: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   419 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:01: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   705 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:01: KNX hardware 1/3/3    Temperatur Delia          type temp     act  24.9 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:48:01: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:03: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:48:05: KNX virtual  20/0/67  LEDs Kueche               type light    act     0 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 19:48:06: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:48:06: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:48:06: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:48:15: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:48:16: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 19:48:20: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:48:20: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 19:48:23: KNX virtual  1/2/13   Kuehlschrank unten        type fridge   act  13.4 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:23: KNX virtual  1/2/13   Kuehlschrank unten        type fridge   act  10.5 alter     1 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:23: KNX virtual  1/2/13   Kuehlschrank unten        type fridge   act  15.2 alter     2 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:23: KNX virtual  1/2/15   Heizung Ruecklauf         type centheat act  42.9 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/15   Heizung Ruecklauf         type centheat act  29.4 alter     1 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/15   Heizung Ruecklauf         type centheat act  57.4 alter     2 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/14   Heizung Vorlauf           type centheat act  45.5 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/14   Heizung Vorlauf           type centheat act  29.4 alter     1 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/14   Heizung Vorlauf           type centheat act  57.4 alter     2 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/16   Heizung Heisswasser       type centheat act  56.8 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/16   Heizung Heisswasser       type centheat act  51.5 alter     1 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX virtual  1/2/16   Heizung Heisswasser       type centheat act  62.5 alter     2 update 1 smart 0 dash 1 special 0
+2023.04.03 19:48:24: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:28:01: Variables fully loaded.
+2023.04.03 20:28:01: config file read.
+2023.04.03 20:28:02: reading & waiting for weather data ...
+2023.04.03 20:28:27: Variables fully loaded.
+2023.04.03 20:28:27: config file read.
+2023.04.03 20:28:27: reading & waiting for weather data ...
+2023.04.03 20:29:39: Variables fully loaded.
+2023.04.03 20:29:39: config file read.
+2023.04.03 20:29:39: reading & waiting for weather data ...
+2023.04.03 20:29:40: reading & waiting for weather data ...
+2023.04.03 20:29:41: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:29:42: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:29:42: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:29:45: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:29:46: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:29:46: KNX virtual  1/4/1    Bewegung Kueche           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:29:46: KNX hardware 3/0/6    Fenster Wohn Sued 6       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:29:46: KNX virtual  0/0/14   Aussenleuchte Lorzing     type light    act     1 alter     0 update 1 smart 0 dash 0 special 0
+2023.04.03 20:29:51: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:29:51: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:29:52: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:30:35: File with variables does not exist. Starting empty.
+2023.04.03 20:30:35: config file read.
+2023.04.03 20:30:38: reading & waiting for weather data ...
+2023.04.03 20:30:38: KNX hardware 1/0/0    Heizung Wohn Sued         type heat     act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 20:30:38: Raffstore set to auto mode by time_out: 2/0/0
+2023.04.03 20:30:38: Raffstore set to auto mode by time_out: 2/1/0
+2023.04.03 20:30:38: Raffstore set to auto mode by time_out: 2/4/0
+2023.04.03 20:30:38: Raffstore set to auto mode by time_out: 2/5/0
+2023.04.03 20:30:39: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:30:44: KNX virtual  8/0/16   Feuchtigkeit Heizung      type humi     act  13.7 alter  25.6 update 1 smart 0 dash 1 special 0
+2023.04.03 20:30:44: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:44: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:30:44: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:30:44: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:44: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:44: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:45: KNX virtual  8/0/2    Feuchtigkeit Bad Kinder   type humi     act  50.5 alter  22.3 update 1 smart 0 dash 1 special 0
+2023.04.03 20:30:48: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:48: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:53: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:53: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:30:55: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:30:56: Triangulation 1 Delia           : 99, 99, 99,  0, 99 ERR   189
+2023.04.03 20:30:58: KNX virtual  1/4/1    Bewegung Kueche           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:02: KNX virtual  4/7/6    CO2 WohnNord              type CO2      act   454 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 20:31:02: KNX virtual  4/7/1    CO2 WohnSued              type CO2      act   408 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 20:31:02: KNX virtual  4/7/5    CO2 Arbeit                type CO2      act   706 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 20:31:15: KNX virtual  1/2/8    Status Internet           type inter    act     0 alter     0 update 1 smart 0 dash 1 special 0
+2023.04.03 20:31:15: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:15: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:15: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:15: Triangulation 2 Wohn Nord       : 99, 99, 99, 99,  3 OK      4
+2023.04.03 20:31:15: Triangulation 1 Delia           : 99, 99, 99,  0, 99 ERR   189
+2023.04.03 20:31:15: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:15: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:15: KNX virtual  8/0/8    Feuchtigkeit Bad Eltern   type humi     act  31.2 alter  18.5 update 1 smart 0 dash 1 special 0
+2023.04.03 20:31:15: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:15: Triangulation 1 Delia           : 99, 99, 99,  0, 99 ERR   189
+2023.04.03 20:31:16: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:16: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:24: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:24: KNX virtual  1/4/10   Bewegung Gang             type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:25: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:25: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:26: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:27: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:27: Triangulation 1 Delia           : 99, 99, 99,  0, 99 ERR   189
+2023.04.03 20:31:27: KNX hardware 3/6/0    Fenster Eltern            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:27: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:27: KNX virtual  1/4/0    Bewegung Eingang          type motion   act     1 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:31: KNX virtual  1/2/18   Aq Tage Nachfuellen       type dayref   act  1000 alter   101 update 1 smart 0 dash 1 special 0
+2023.04.03 20:31:31: KNX hardware 3/4/0    Fenster Arbeit            type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:34: KNX hardware 3/2/0    Fenster Fiona             type window   act     1 alter     0 update 1 smart 1 dash 1 special 0
+2023.04.03 20:31:35: KNX virtual  1/4/19   Bewegung Kaffee           type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:36: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:36: KNX virtual  1/4/10   Bewegung Gang             type motion   act     0 alter     0 update 1 smart 1 dash 0 special 0
+2023.04.03 20:31:37: KNX hardware 3/0/3    Fenster Wohn Sued 3       type window   act     1 alter     0 update 1 smart 1 dash 1 special 0

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /home/pi/si-smarthome
+cd /home/pi/si-smarthome/weather
 
 mv openweather.json openweather.backup
 mv actuweather.json actuweather.backup

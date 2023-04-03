@@ -8,15 +8,15 @@ import holidays
 from datetime import datetime
 
 os.chdir('/home/pi/si-smarthome')
-exec(compile(open('support.py',        "rb").read(), 'support.py',        'exec'))
-exec(compile(open('special.py',        "rb").read(), 'special.py',        'exec'))
-exec(compile(open('type-update.py',    "rb").read(), 'type-update.py',    'exec'))
-exec(compile(open('smart-routines.py', "rb").read(), 'smart-routines.py', 'exec'))
-exec(compile(open('room-mode.py',      "rb").read(), 'room-mode.py',      'exec'))
-exec(compile(open('write_visu.py',     "rb").read(), 'write_visu.py',     'exec'))
-exec(compile(open('dashboard.py',      "rb").read(), 'dashboard.py',      'exec'))
-exec(compile(open('alarm.py',          "rb").read(), 'alarm.py',          'exec'))
-exec(compile(open('blinds.py',         "rb").read(), 'blinds.py',         'exec'))
+exec(compile(open('modules/support.py',        "rb").read(), 'support.py',        'exec'))
+exec(compile(open('modules/special.py',        "rb").read(), 'special.py',        'exec'))
+exec(compile(open('modules/type-update.py',    "rb").read(), 'type-update.py',    'exec'))
+exec(compile(open('modules/smart-routines.py', "rb").read(), 'smart-routines.py', 'exec'))
+exec(compile(open('modules/room-mode.py',      "rb").read(), 'room-mode.py',      'exec'))
+exec(compile(open('modules/write_visu.py',     "rb").read(), 'write_visu.py',     'exec'))
+exec(compile(open('modules/dashboard.py',      "rb").read(), 'dashboard.py',      'exec'))
+exec(compile(open('modules/alarm.py',          "rb").read(), 'alarm.py',          'exec'))
+exec(compile(open('modules/blinds.py',         "rb").read(), 'blinds.py',         'exec'))
 
 ###################################################
 #            main software parameters		  #
@@ -25,12 +25,11 @@ software_name           = "eHome-v1.0"
 software_version        = 1.0
 software_start_time	= time.time()
 software_config_time	= -1
-conf_file               = "/home/pi/eHome/eHome.conf"
-knxt_file               = "/home/pi/siSH/knx_telegram.log"
-mess_file               = "/home/pi/siSH/knx_messages.log"
-vars_file               = "/home/pi/siSH/siSH-vars.pkl"
-JALU_file               = "/home/pi/siSH/jalu.dat"
-visu_file               = "/var/www/ehome-html/siSH-data.xml"
+conf_file               = "/home/pi/si-smarthome/si-smarthome.conf"
+knxt_file               = "/home/pi/si-smarthome/logs/knx_telegram.log"
+mess_file               = "/home/pi/si-smarthome/logs/knx_messages.log"
+vars_file               = "/home/pi/si-smarthome/si-smarthome.pkl"
+visu_file               = "/home/pi/si-smarthome/si-smarthome.xml"
 
 ###################################################
 #           init config + variables		  #
@@ -45,6 +44,7 @@ TIMER			= {}
 dash_mode		= 'speak'
 min1_last		= -1
 min5_last		= -1
+min15_last		= -1
 hour_last		= -1
 auto_lights_count	= 0
 auto_lights_time	= -1
@@ -57,13 +57,13 @@ MOBILE			= {
 }
 load_vars()
 load_conf()
-load_weather()
+#load_weather()
 
 ELEM_DATA['3/0/10']['pos1'] = "weg"
 ELEM_DATA['3/0/10']['pos2'] = "weg"
 
 # open pipe to KNX bus and log-file
-knx_bus = subprocess.Popen(['knxtool groupsocketlisten', 'ip:192.168.22.65'], \
+knx_bus = subprocess.Popen(['knxtool', 'groupsocketlisten', 'ip:192.168.22.65'], \
           stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 knx_t = open(knxt_file, 'a')
 
@@ -87,23 +87,24 @@ knx_change	= False
 while True:
 
   # actual 1min / 5min / 1h
-  min1_actu = datetime.now().minute
-  min5_actu = datetime.now().minute // 5
-  hour_actu = datetime.now().hour
+  min1_actu  = datetime.now().minute
+  min5_actu  = datetime.now().minute //  5
+  min15_actu = datetime.now().minute // 15
+  hour_actu  = datetime.now().hour
 
   # do 1min items
   if min1_actu != min1_last:
     load_conf()
     save_vars()
-    save_JALU()
 
   # do 5min items
   if min5_actu != min5_last:
-    load_weather()			# update weather information
     knx_t.close()			# close & re-open knx telegram logfile
     knx_t = open(knxt_file, 'a')
-    check_empty_deebot()		# check to empty deebot with noise
-    deebot_sauge_eingang()		# check to hoover entrance in evening
+
+  # do 15min items
+  if min15_actu != min15_last:
+    load_weather()			# update weather information
 
   # calculate & show system load factor
   d_loop = conf_data["General"]["show_loop_time"]
@@ -252,8 +253,9 @@ while True:
   blinds_main_loop()
 
   # update 1min / 5min / 1h
-  min1_last = min1_actu
-  min5_last = min5_actu
-  hour_last = hour_actu
+  min1_last  = min1_actu
+  min5_last  = min5_actu
+  min15_last = min15_actu
+  hour_last  = hour_actu
   i_loop += 1
 
