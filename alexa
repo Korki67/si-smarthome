@@ -1,0 +1,452 @@
+#!/bin/sh
+cd /var/www/ehome-cgi-bin
+
+longTEXT="30"	# number of characters of a string to exceed the loudness reduction while speaking
+delay=0.3	# standard delay between actions to avoid error "Rate exceeded: Too many requests."
+i_max=6		# number of re-tries
+
+##############################################
+# check on correct user or exit with error
+##############################################
+user=`whoami`
+if [ "$user" != "www-data" ]; then
+  echo Requires user www-data
+  echo exit with error 1
+  echo
+  exit 1
+fi
+
+if [ "$#" -ne 4 ]; then
+  echo Requires 4 parameters
+  echo 1 device
+  echo 2 speak-text or "-"	or   AUTO
+  echo 3 loudness   or   0	or   auto_name
+  echo 4 radio      or   CONT   or   PAUSE
+  echo exit with error 2
+  echo
+  exit 2
+fi
+
+dev=$1					# device
+spe=$2					# speak-text
+lou=$3					# loudness
+rad=$4					# radio or automation name
+
+if [ "$spe" != "AUTO" ]; then
+  rad=`echo $4 | tr \[a-z\] \[A-Z\]`	# radio changed to upper case
+fi
+
+# correct loudness if value below 10 is given
+if [ "$lou" -gt 0 ] && [ "$lou" -lt 10 ]; then
+  l_O=$lou
+  lou=`expr $lou \* 10`
+  echo INFO: loudness $l_O is multiplied with 10 to $lou
+fi
+
+##############################################
+# calculate length & music-device
+##############################################
+vol=$(( lou / 10 ))
+len=${#spe}
+if [ "$dev" = "WohnSued" ]; then
+  dev=Sued1
+fi
+if [ "$dev" = "WohnNord" ]; then
+  dev=Nord1
+fi
+mus=$dev
+if [ "$mus" = "Sued1" ] || [ "$mus" = "Sued2" ]; then
+  mus=WohnSued
+fi
+if [ "$mus" = "Nord1" ] || [ "$mus" = "Nord2" ]; then
+  mus=WohnNord
+fi
+
+contains() {
+  case "$1" in
+  (*"$2"*)	true;;
+  (*)		false;;
+  esac
+}
+
+sub_alexa() {
+  i=1
+  if   [ "$#" -eq "1" ]; then
+    echo Parameters $1
+    out=`./alexa_remote_control.sh $1`
+  elif [ "$#" -eq "3" ]; then
+    echo Parameters $1 $2 $3
+    out=`./alexa_remote_control.sh $1 $2 $3`
+  elif [ "$#" -eq "4" ]; then
+    echo Parameters $1 $2 $3 $4
+    out=`./alexa_remote_control.sh $1 $2 $3 $4`
+  elif [ "$#" -eq "5" ]; then
+    echo Parameters $1 $2 $3 $4:\"$5\"
+    out=`./alexa_remote_control.sh $1 $2 $3 $4:"$5"`
+  else
+    echo
+    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    echo Error - number of parameters of $# not supported
+    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    echo
+  fi
+  echo $out
+  while contains "$out" "Rate exceeded" && [ "$i" -le "$i_max" ]; do
+    echo Command not accepted, will wait $(( i+1 )) times $delay sec to issue command again, this is try $i of $i_max
+    d=0
+    sleep $delay
+    while [ "$d" -lt "$i" ]; do
+      sleep $delay
+      d=$(( d + 1 ))
+    done
+    if   [ "$#" -eq "1" ]; then
+      out=`./alexa_remote_control.sh $1`
+    elif [ "$#" -eq "3" ]; then
+      out=`./alexa_remote_control.sh $1 $2 $3`
+    elif [ "$#" -eq "4" ]; then
+      out=`./alexa_remote_control.sh $1 $2 $3 $4`
+    elif [ "$#" -eq "5" ]; then
+      out=`./alexa_remote_control.sh $1 $2 $3 $4:"$5"`
+    fi
+    echo $out
+    i=$(( i + 1 ))
+  done
+}
+
+date=`date '+%Y.%m.%d %H:%M:%S'`
+echo
+echo "================================== $date ======================================="
+if [ "$rad" = "-" ]; then
+  echo Radio - is not supported anymore. Exiting with error 1.
+  sleep 0.2
+  exit 1
+fi
+spe_c=`echo $spe | cut -b 1-15`
+echo Parameters Device:$dev Stereo:$mus Speak:$spe Length:$len Loud:$lou Radio:$rad
+find . -mmin +60 -type f -name 'error.*' -exec rm -fv {} \;
+
+##############################################
+# run automation / routine if requested
+##############################################
+if [ "$spe" = "AUTO" ]; then
+  echo action-0: run automation routine $rad
+  sub_alexa -d $dev -e automation $rad
+  echo Exiting as nothing else to do.
+  sleep 0.2
+  exit 0
+fi
+
+##############################################
+# stop radio if requested
+##############################################
+if [ "$rad" != "CONT" ]; then
+  echo action-1: stop radio
+  sub_alexa -d $mus -e pause
+  #sub_alexa -d $mus -e textcommand "radio stop"
+  if [ "$spe" = "-" ] && [ "$lou" -eq "0" ] && [ "$rad" = "PAUSE" ]; then
+    echo Exiting as nothing else to do: text to speak is $spe and loudness is $lou and radio is $rad
+    sleep 0.2
+    exit 0
+  fi
+  echo Continuing with $delay sec delay to either set loudness to $lou or speak $spe or set radio to $rad
+  sleep $delay
+fi
+
+##################################################################################
+# set loudness with no or short text to speak or if radio stopped or new radio
+##################################################################################
+if [ "$lou" -gt "0" ] && { { [ "$rad" = "CONT" ] && [ "$len" -lt "$longTEXT" ]; } || [ "$rad" != "CONT" ]; }; then
+  echo action-2: set loudness to $lou
+  sub_alexa -d $dev -e vol:$lou
+  if [ "$spe" = "-" ] && [ "$rad" = "PAUSE" ]; then
+    echo Exiting as nothing else to do: text to speak is $spe and radio is $rad
+    sleep 0.2
+    exit 0
+  fi
+  echo Continuing with $delay sec delay to speak $spe or set radio to $rad
+  sleep $delay
+fi
+
+##################################################################################
+# speak short text or long if radio stopped or new radio
+##################################################################################
+if [ "$spe" != "-" ] && { [ "$len" -le "$longTEXT" ] || [ "$rad" != "CONT" ]; }; then
+  echo action-3: speak short text or long text with radio stopped or new: $spe
+  if   [ "$spe" = "bell_on" ]; then
+    sub_alexa -d $dev -e sound:bell_02
+  elif [ "$spe" = "bell_off" ]; then
+    sub_alexa -d $dev -e sound:boing_03
+  else
+    sub_alexa -d $dev -e speak "$spe"
+  fi
+  dur=$(( 1 + len / 13 ))
+  flg=`echo "$dur < 3.0" | bc`
+  if [ "$flg" -eq "1" ]; then
+    dur=3
+  fi
+  echo Waiting $dur sec to let Alexa speak
+  sleep $dur
+  if [ "$rad" = "PAUSE" ] || { [ "$len" -le "$longTEXT" ] && [ "$rad" = "CONT" ]; }; then
+    echo Exiting as nothing else to do: radio is $rad
+    sleep 0.2
+    exit 0
+  fi
+  echo Continuing to set radio to $rad
+fi
+
+##################################################################################
+# set radio to new radio station
+##################################################################################
+if [ "$rad" != "CONT" ]; then
+  echo action-4: set radio to $rad
+  if [ "$rad" = "SWR3" ]; then
+    sub_alexa -d $dev -e textcommand "Spiele SWR3 auf ARD"
+    echo SWR3 auf ARD requested
+  else
+    sub_alexa -d $dev -e playmusic "DEFAULT:$rad"
+    #sub_alexa -d $dev -e textcommand "Spiele $rad"
+  fi
+  sleep 2.0
+  echo waited 2 sec + exiting as all is done
+  exit 0
+fi
+
+##################################################################################
+# for anything else we need to analye the current status of the device
+##################################################################################
+
+##################################################################################
+# call que status of device
+##################################################################################
+if { contains "$dev" 'alle'; } || { contains "$dev" 'info'; }; then
+  state="PAUSED"
+else
+  echo A
+  i=3
+  fully=`./alexa_remote_control.sh -d $dev -q`
+  state=`echo $fully | grep -e state -e Invalid -e currentState -e radioStationName -e title -e message -e "not connected" | tr -d "[:space:]" | tr "\n" " " | sed -e s/IDLE/PAUSED/g `
+  l=`echo $fully | wc -l`
+  while [ "$l" -lt "30" ] && [ ! contains "$fully" '"currentState"' ] && [ "$i" -gt "0" ]; do
+    sleep 1.5
+    fully=`./alexa_remote_control.sh -d $dev -q`
+    state=`echo $fully | grep -e state -e Invalid -e currentState -e radioStationName -e title -e message -e "not connected" | tr -d "[:space:]" | tr "\n" " " | sed -e s/IDLE/PAUSED/g `
+    l=`echo $fully | wc -l`
+    i=$(( i - 1 ))
+  done
+  if [ "$l" -lt "30" ]; then
+    echo Queue -q error less than 40 lines in 3 successive calls not cured
+  fi
+fi
+
+##################################################################################
+# try to re-connect script if not connected
+##################################################################################
+if [ -z "$state" ] || contains "$state" "usernotauthorized" ; then
+  if [ ! -f "error.reconnect" ]; then
+    echo Alexa not connected. Logging off and reconnecting ...
+    ./alexa_remote_control.sh -l
+    cat alexa.mail | sed "s/STATE/$date $mus state empty/" > alexa.mail.use
+    /home/pi/info-system/info-mail alexa warn "Alexa Status von $mus leer. Re-connected." alexa.mail.use
+    sleep 1
+    state=`./alexa_remote_control.sh -d $dev -q | grep -e state -e Invalid -e currentState -e radioStationName -e title -e message -e "not connected" | tr -d "[:space:]" | tr "\n" " " | sed -e s/IDLE/PAUSED/g `
+    echo State of Alexa after re-connect: $state
+    touch error.reconnect
+  else
+    echo Alexa not connected. Repetitive error, currently not trying again ...
+  fi
+fi
+
+##################################################################################
+# analyse status
+##################################################################################
+if { contains "$state" "currentState";} && { contains "$state" "PAUSED" || contains "$state" "radioStationName" || contains "$state" "title" ;}; then
+  echo "$date $mus state <$state> is OK"
+else
+  if contains "$state" "PAUSED"; then
+    echo "$date $mus state <$state> contains PAUSED, last radio station missing. OK"
+  elif contains "$state" "not connected" ; then
+    echo "$date $mus state <$state> is offline, exiting with error 3"
+    if [ ! -f "error.$dev" ]; then
+      cat alexa.mail | sed "s/STATE/$date $mus $state/" > alexa.mail.use
+      /home/pi/info-system/info-mail sub_alexa warn "Alexa $mus ist offline" alexa.mail.use
+      touch error.$dev
+    else
+      echo Device $dev status error. Repetitive error, no mail send again ...
+    fi
+    sleep 0.2
+    exit 3
+  elif contains "$state" '"message":null'; then
+    echo "$date $mus state <$state> seems offline, trying and not exiting"
+    if [ ! -f "error.$dev" ]; then
+      cat alexa.mail | sed "s/STATE/$date $mus $state/" > alexa.mail.use
+      /home/pi/info-system/info-mail sub_alexa warn "Alexa $mus ist offline" alexa.mail.use
+      touch error.$dev
+    else
+      echo Device $dev status error. Repetitive error, no mail send again ...
+    fi
+  else
+    echo "$date $mus state <$state> is not clear, set to PAUSED"
+    if [ ! -f "error.$dev" ]; then
+      cat alexa.mail | sed "s/STATE/$date $mus $state/" > alexa.mail.use
+      /home/pi/info-system/info-mail sub_alexa warn "Alexa Status von $mus unvollstaendig" alexa.mail.use
+      touch error.$dev
+    else
+      echo Device $dev status error. Repetitive error, no mail send again ...
+    fi
+    state="PAUSED"
+  fi
+fi
+
+##################################################################################
+# set variables for further actions
+##################################################################################
+case "$state" in
+  *PLAYING*)	isPLAYING="yes" ;;
+  *)		isPLAYING="no"
+esac
+case "$state" in
+  *${rad}*)	sameRADIO="yes" ;;
+  *)		sameRADIO="no"
+esac
+if [ "$rad" = "CONT" ]; then
+  sameRADIO="yes"
+fi
+case "$state" in
+  *PAUSE*)	isPAUSED="yes" ;;
+  *)		isPAUSED="no"
+esac
+if [ "$isPLAYING" = "yes" ]; then
+  isPAUSED="no"
+fi
+echo "Is playing : $isPLAYING"
+echo "Is paused  : $isPAUSED"
+echo "Radio same : $sameRADIO"
+
+##################################################################################
+# exit if requested radio already running
+##################################################################################
+if [ "$sameRADIO" = "yes" ] && [ "$isPLAYING" = "yes" ] && [ "$spe" = "-" ] && [ "$lou" = "0" ]; then
+  echo action-4: no change and same radio requested as already playing, so do nothing and exit
+  sleep 0.2
+  exit 0
+fi
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# END   of new script - focus on SPEED
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+##################################################################################
+# Choose loudness Night or Day time
+##################################################################################
+#H=$(date +%H)
+#if [ $H -ge 21 -o $H -le 8 ]; then
+#  echo Nighttime speak volume: 20
+#  export SPEAKVOL="20"
+#else
+#  echo Daytime speak volume: 30
+#  export SPEAKVOL="30"
+#fi
+
+##############################################
+# pause if len > 30 & playing or on request
+##############################################
+if [ "$isPLAYING" = "yes" ]; then
+  if [ $len -gt 30 ] || [ "$sameRADIO" = "no" ]; then
+    sleep 0.2
+    echo D
+    sub_alexa -d $mus -e pause
+    #sub_alexa -d $mus -e textcommand "radio stop"
+    echo Alexa $mus paused and waited 0.2 sec
+  else
+    echo Alexa $mus not paused case a: isPLAYING $isPLAYING LEN $len sameRADIO $sameRADIO
+  fi
+elif [ "$rad" = "-" ] || [ "$rad" = "PAUSE" ]; then
+  sleep 0.3
+  echo D
+  sub_alexa -d $mus -e pause
+  #sub_alexa -d $mus -e textcommand "radio stop"
+  echo Alexa $mus paused case b: isPLAYING $isPLAYING LEN $len sameRADIO $sameRADIO
+else
+  echo Alexa $mus paused case c: nothing done
+fi
+
+##############################################
+# speak the text if any
+##############################################
+if [ "$spe" != "-" ]; then
+  #echo Speaking text $spe
+  if   [ "$spe" = "bell_on" ]; then
+    echo F
+    sub_alexa -d $dev -e sound:bell_02
+  elif [ "$spe" = "bell_off" ]; then
+    echo G
+    sub_alexa -d $dev -e sound:boing_03
+  else
+    echo H
+    sub_alexa -d $dev -e speak "$spe"
+  fi
+  echo Finished speaking.
+  dur=$(( 1 + len / 13 ))
+  flg=`echo "$dur < 3.0" | bc`
+  if [ "$flg" -eq "1" ]; then
+    dur=3
+    echo Set waiting to min of 3 sec
+  fi
+
+  echo Sleeping $dur seconds
+  sleep $dur
+fi
+
+##############################################
+# set volume if not equal to zero
+##############################################
+if [ $lou -gt 0 ]; then
+  sleep 0.5
+  echo I
+  sub_alexa -d $dev -e vol:$lou
+  echo Loudness set to $lou / $vol and waited 0.5 sec
+fi
+
+##############################################
+# start radio if needed
+##############################################
+if [ "$rad" != "-" ] && [ "$rad" != "CONT" ] && [ "$rad" != "PAUSE" ] && [ "$sameRADIO" = "no" ]; then
+  sleep 0.5
+  if [ "$rad" = "SWR3" ]; then
+    echo J
+    sub_alexa -d $dev -e textcommand "Spiele SWR3 auf ARD"
+    echo SWR3 auf ARD requested
+  else
+    echo K1
+    sub_alexa -d $dev -e playmusic "DEFAULT:$rad"
+    #sub_alexa -d $dev -e textcommand "Spiele $rad"
+  fi
+  sleep 2.0
+  echo a Radio set to $rad and slept 0.5 sec before + 2.0 sec after
+
+elif [ "$isPLAYING" = "yes" ] && [ $len -gt 30 ] && { [ "$rad" = "CONT" ] || [ "$sameRADIO" = "yes" ]; }; then
+  # re-start radio for long text if "CONT" was chosen
+  sleep 0.5
+  echo K2
+  sub_alexa -d $mus -e play
+  #sub_alexa -d $dev -e textcommand "Spiele $rad"
+  sleep 2.0
+  echo b Alexa $mus restarted due to long text and slept 0.5 sec before + 2.0 sec after
+
+elif [ "$isPAUSED" = "yes" ] && [ "$rad" != "-" ] && [ "$rad" != "PAUSE" ] && [ "$rad" != "CONT" ] && [ "$sameRADIO" = "yes" ]; then
+  sleep 0.5
+  echo L
+  sub_alexa -d $mus -e play
+  #sub_alexa -d $dev -e textcommand "Spiele $rad"
+  sleep 2.0
+  echo c Continue same radio as before as no stop was requested and slept 0.5 sec before + 2.0 sec after
+
+  # re-start radio for long text if "CONT" was chosen
+else
+  echo d Nothing to do on radio
+fi
+
+echo done.
+sleep 0.2
+exit 0
+

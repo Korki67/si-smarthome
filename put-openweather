@@ -1,0 +1,234 @@
+#!/usr/bin/python
+
+import json
+import pprint
+import time
+
+priority = {
+  0:	0,
+  1:	0,
+  2:	8,
+  3:	3,
+  4:	0,
+  5:	5,
+  6:	6,
+  7:	3,
+  8:	2,
+  9:	9  }
+
+fobj = open('openweather.json')
+html = fobj.read()
+fobj.close()
+data = json.loads(html)
+
+H3 = 11
+offset = H3 - (time.localtime()[3] // 3)
+h = time.strftime("%H", time.gmtime(data["list"][offset + 0*8]["dt"]))
+h = time.strftime("%H", time.localtime(data["list"][offset + 0*8]["dt"]))
+
+if h <> "12":
+  print "Error h = ", h
+  print "Error might be correctet"
+
+if h == "09":
+  offset = offset + 1
+if h == "15":
+  offset = offset - 1
+
+if h == "06":
+  offset = offset + 2
+if h == "18":
+  offset = offset - 2
+
+# print "dt     = ", data["list"][offset + 0*8]["dt"]
+# print "time   = ", time.localtime(data["list"][offset + 0*8]["dt"])
+# print "%H     = ", h
+# print "offset = ", offset
+
+fobj = open('openweather.xml', 'w')
+Nobj = open('weather.xml',     'w')
+
+# index 1 = naechster 3h-Slot
+idx = 2
+fobj.write("<yw_date_0>" + data["list"][idx]["dt_txt"] + "</yw_date_0>\n")
+Nobj.write("<w_date_0>" + data["list"][idx]["dt_txt"] + "</w_date_0>\n")
+
+fobj.write("<yw_day_0>" + time.strftime("%a %d.", time.localtime(data["list"][idx]["dt"])) + "</yw_day_0>\n")
+Nobj.write("<w_day_0>" + time.strftime("%a %d.", time.localtime(data["list"][idx]["dt"])) + "</w_day_0>\n")
+
+temp = 0.5 * (data["list"][idx]["main"]["temp_min"] + data["list"][idx]["main"]["temp_max"])
+humi = data["list"][idx]["main"]["humidity"]
+fobj.write("<yw_min_max_0>" + "{0:.1f}".format(temp) + "</yw_min_max_0>\n")
+Nobj.write("<w_T_outside_0>" + "{0:.1f}".format(temp) + "</w_T_outside_0>\n")
+Nobj.write("<w_humi_0>" + "{0:.0f}".format(humi) + "</w_humi_0>\n")
+Nobj.write("<w_min_0>" + "{0:.1f}".format(data["list"][idx]["main"]["temp_min"]) + "</w_min_0>\n")
+Nobj.write("<w_max_0>" + "{0:.1f}".format(data["list"][idx]["main"]["temp_max"]) + "</w_max_0>\n")
+
+idx = -1
+pri = -1
+for j in range (len(data["list"][1]["weather"])):
+  p = priority[data["list"][1]["weather"][j]["id"] // 100]
+  if p > pri:
+    pri = p
+    idx = j
+code = data["list"][1]["weather"][idx]["icon"]
+Descr = data["list"][1]["weather"][idx]["description"]
+
+try:
+  Rain = data["list"][1]["rain"]["3h"]
+except:
+  Rain = 0.0
+if (Rain > 2.5) or ("shower" in Descr):
+  if "d" in code: code = "11dr"
+  else:           code = "11nr"
+fobj.write("<yw_code_0>" + code  + "</yw_code_0>\n")
+Nobj.write("<w_code_0>" + code  + "</w_code_0>\n")
+
+fobj.write("<yw_text_0>" + Descr + "</yw_text_0>\n")
+Nobj.write("<w_text_0>" + Descr + "</w_text_0>\n")
+
+code = data["list"][1]["weather"][idx]["id"]
+print "new ", code
+fobj.write("<yw_num_0>" + str(code)  + "</yw_num_0>\n")
+Nobj.write("<w_num_0>" + str(code)  + "</w_num_0>\n")
+
+for i in range(0, 4):
+  try:
+    fobj.write("<yw_date_" + str(1+i) + ">" + data["list"][offset + i*8]["dt_txt"] + "</yw_date_" + str(1+i) + ">\n")
+    Nobj.write("<w_date_" + str(1+i) + ">" + data["list"][offset + i*8]["dt_txt"] + "</w_date_" + str(1+i) + ">\n")
+  except:
+    fobj.write("<yw_date_" + str(1+i) + ">error</yw_date_" + str(1+i) + ">\n")
+    fobj.write("<w_date_" + str(1+i) + ">error</w_date_" + str(1+i) + ">\n")
+  
+  try:
+    fobj.write("<yw_day_" + str(1+i) + ">" + time.strftime("%a %d.", time.localtime(data["list"][offset + i*8]["dt"])) + "</yw_day_" + str(1+i) + ">\n")
+    Nobj.write("<w_day_" + str(1+i) + ">" + time.strftime("%a %d.", time.localtime(data["list"][offset + i*8]["dt"])) + "</w_day_" + str(1+i) + ">\n")
+  except:
+    fobj.write("<yw_day_" + str(1+i) + ">error</yw_day_" + str(1+i) + ">\n")
+    Nobj.write("<w_day_" + str(1+i) + ">error</w_day_" + str(1+i) + ">\n")
+
+  try:
+    temp = 0.5 * (data["list"][offset + i*8]["main"]["temp_min"] + data["list"][offset + i*8]["main"]["temp_max"])
+    humi = data["list"][offset + i*8]["main"]["humidity"]
+    fobj.write("<yw_min_max_" + str(1+i) + ">" + "{0:.1f}".format(temp) + "</yw_min_max_" + str(1+i) + ">\n")
+    Nobj.write("<w_T_outside_" + str(1+i) + ">" + "{0:.1f}".format(temp) + "</w_T_outside_" + str(1+i) + ">\n")
+    Nobj.write("<w_humi_" + str(1+i) + ">" + "{0:.0f}".format(humi) + "</w_humi_" + str(1+i) + ">\n")
+    # min and max always same value - no meaning
+    # Nobj.write("<w_min_" + str(1+i) + ">" + "{0:.1f}".format(data["list"][offset + i*8]["main"]["temp_min"]) + "</w_min_" + str(1+i) + ">\n")
+    # Nobj.write("<w_max_" + str(1+i) + ">" + "{0:.1f}".format(data["list"][offset + i*8]["main"]["temp_max"]) + "</w_max_" + str(1+i) + ">\n")
+  except:
+    fobj.write("<yw_min_max_" + str(1+i) + ">error</yw_min_max_" + str(1+i) + ">\n")
+    Nobj.write("<w_T_outside_" + str(1+i) + ">error</w_T_outside_" + str(1+i) + ">\n")
+    # min and max always same value - no meaning
+    # Nobj.write("<w_min_" + str(1+i) + ">error</w_min_" + str(1+i) + ">\n")
+    # Nobj.write("<w_max_" + str(1+i) + ">error</w_max_" + str(1+i) + ">\n")
+
+  idx = -1
+  pri = -1
+  try:
+    for j in range (len(data["list"][offset + i*8]["weather"])):
+      p = priority[data["list"][offset + i*8]["weather"][j]["id"] // 100]
+      if p > pri:
+        pri = p
+        idx = j
+  except: pass
+
+  try:
+    code  = data["list"][offset + i*8]["weather"][idx]["icon"]
+    Descr = data["list"][offset + i*8]["weather"][idx]["description"]
+  except:
+    code  = "error"
+    Descr = "error"
+
+  try:
+    Rain = data["list"][offset + i*8]["rain"]["3h"]
+  except:
+    Rain = 0.0
+
+  if (Rain > 2.5) or ("shower" in Descr):
+    if "d" in code: code = "11dr"
+    else:           code = "11nr"
+
+  try:
+    fobj.write("<yw_code_" + str(1+i) + ">" + code  + "</yw_code_" + str(1+i) + ">\n")
+    Nobj.write("<w_code_" + str(1+i) + ">" + code  + "</w_code_" + str(1+i) + ">\n")
+    fobj.write("<yw_text_" + str(1+i) + ">" + Descr + "</yw_text_" + str(1+i) + ">\n")
+    Nobj.write("<w_text_" + str(1+i) + ">" + Descr + "</w_text_" + str(1+i) + ">\n")
+  except:
+    fobj.write("<yw_code_" + str(1+i) + ">error</yw_code_" + str(1+i) + ">\n")
+    Nobj.write("<w_code_" + str(1+i) + ">error</w_code_" + str(1+i) + ">\n")
+    fobj.write("<yw_text_" + str(1+i) + ">error</yw_text_" + str(1+i) + ">\n")
+    Nobj.write("<w_text_" + str(1+i) + ">error</w_text_" + str(1+i) + ">\n")
+
+Nobj.write("<w_sunrise>" + str(data["city"]["sunrise"]) + "</w_sunrise>\n")
+Nobj.write("<w_sunset>"  + str(data["city"]["sunset"]) + "</w_sunset>\n")
+
+fobj.close()
+
+fobj = open('actuweather.json')
+html = fobj.read()
+fobj.close()
+data = json.loads(html)
+
+Temp  = data["main"]["temp"]
+# Temp  = (Temp - 32.0) / 1.8
+Speed = data["wind"]["speed"]
+Zeit  = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(data["dt"]))
+Beauf = (Speed * 1000.0 / 3600.0 / 0.8360)**(2.0/3.0)
+
+idx = -1
+pri = -1
+for i in range (len(data["weather"])):
+  p = priority[data["weather"][i]["id"] // 100]
+  if p > pri:
+    pri = p
+    idx = i
+
+Icon  = data["weather"][idx]["icon"]
+Descr = data["weather"][idx]["description"].replace("with ", "").replace("intensity ", "")
+
+try:
+  Rain = data["rain"]["3h"]
+except:
+  Rain = 0.0
+
+fobj = open('eib.xml', 'w')
+
+code = data["weather"][idx]["id"]
+print "new ", code
+fobj.write("<eib_num>" + str(code) + "</eib_num>\n")
+Nobj.write("<w_num>" + str(code) + "</w_num>\n")
+
+fobj.write("<eib_T_aussen>" + "{0:.1f}".format(Temp) + "</eib_T_aussen>\n")
+Nobj.write("<w_T_outside>" + "{0:.1f}".format(Temp) + "</w_T_outside>\n")
+
+fobj.write("<eib_beau>" + "{0:.1f}".format(Beauf) + "</eib_beau>\n")
+Nobj.write("<w_beaufort>" + "{0:.1f}".format(Beauf) + "</w_beaufort>\n")
+
+fobj.write("<eib_date>" + Zeit + "</eib_date>\n")
+Nobj.write("<w_date>" + Zeit + "</w_date>\n")
+
+fobj.write("<eib_time>" + str(data["dt"]) + "</eib_time>\n")
+Nobj.write("<w_time>" + str(data["dt"]) + "</w_time>\n")
+
+code = Icon
+try:
+  if Descr == "light rain":
+    if code == "10d": code = "09d"
+    if code == "10n": code = "09n"
+except: pass
+try:
+  if (Rain > 2.5) or ("shower" in Descr):
+    if "d" in code: code = "11dr"
+    else:           code = "11nr"
+except: pass
+
+fobj.write("<eib_code>" + code + "</eib_code>\n")
+Nobj.write("<w_code>" + code + "</w_code>\n")
+
+fobj.write("<eib_ywtex>" + Descr + "</eib_ywtex>\n")
+Nobj.write("<w_text>" + Descr + "</w_text>\n")
+
+fobj.close()
+Nobj.close()
+

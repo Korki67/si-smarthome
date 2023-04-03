@@ -1,0 +1,32 @@
+#!/bin/sh
+
+cd /home/pi/ngrok
+
+if [ $# -lt 5 ]; then
+  echo Usage: question backup alexa-device eib-addr value [delay]
+  exit 1
+fi
+
+frage=$1
+nachf=$2
+alexa=$3
+eibad=$4
+value=$5
+
+if [ $# = 6 ]; then
+  delay=$6
+else
+  delay=0.2
+fi
+
+sleep $delay
+
+echo $1 >  frage.dat
+echo $2 >> frage.dat
+echo $3 >> frage.dat
+echo $4 >> frage.dat
+echo $5 >> frage.dat
+
+sudo -u www-data screen -S queue -X stuff "../eHome/alexa $alexa AUTO 0 Frage >> /var/www/ehome-cgi-bin/alexa.log ^M"
+#sudo -u www-data ../eHome/alexa_remote_control.sh -d $alexa -e automation:Frage
+

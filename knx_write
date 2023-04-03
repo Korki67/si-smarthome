@@ -1,0 +1,31 @@
+#!/bin/bash
+
+i=6
+knx=$1
+val="$2"
+slp=$3
+
+if [ -n "$slp" ]; then
+  sleep $slp
+fi
+
+if [ "$val" -eq "1" ] 2>/dev/null || [ "$val" -eq "0" ] 2>/dev/null; then
+  groupswrite ip:192.168.22.65 $knx $val > /dev/null 2>&1
+else
+  groupwrite  ip:192.168.22.65 $knx $val > /dev/null 2>&1
+fi
+
+while [ $? != 0 ] && [ $i -gt 0 ]
+do
+  echo Error from groupswrite
+  sleep 10
+  echo "Anzahl $i Gruppe $knx Wert $val"
+  (( i-- ))
+  if [ "$val" -eq 1 ] 2>/dev/null || [ "$val" -eq 0 ] 2>/dev/null; then
+    groupswrite ip:192.168.22.65 $knx $val > /dev/null 2>&1
+  else
+    groupwrite  ip:192.168.22.65 $knx $val > /dev/null 2>&1
+  fi
+done
+
+exit 0

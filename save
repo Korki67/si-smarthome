@@ -1,0 +1,21 @@
+#!/bin/sh
+
+datum=`date "+%Y-%m-%d_%H-%M"`
+
+echo Backing up \*.py, \*.pkl + \*.conf to backup/$datum
+
+mkdir backup/$datum
+cp *.py      backup/$datum
+cp *.pkl     backup/$datum
+cp *.conf    backup/$datum
+cp alexa*    backup/$datum
+cp save      backup/$datum
+cp clean     backup/$datum
+cp frage     backup/$datum
+cp /var/www/ehome-html/*.html   backup/$datum
+cp /var/www/ehome-html/*.css    backup/$datum
+cp /var/www/ehome-html/*.xml    backup/$datum
+cp /var/www/ehome-cgi-bin/*.cgi backup/$datum
+cp /var/www/ehome-cgi-bin/*.py  backup/$datum
+ls -l backup/$datum
+wc backup/$datum/*.py | grep total

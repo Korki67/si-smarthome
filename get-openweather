@@ -1,0 +1,27 @@
+#!/bin/sh
+
+cd /home/pi/siSH
+
+mv openweather.json openweather.backup
+mv actuweather.json actuweather.backup
+
+wget -O openweather.json http://api.openweathermap.org/data/2.5/forecast?id=2000008\&appid=70000000000000000000000000000004\&mode=json\&units=metric\&cnt=40
+wget -O actuweather.json http://api.openweathermap.org/data/2.5/weather?id=2000008\&appid=70000000000000000000000000000004\&mode=json\&units=metric
+
+openSIZE=$(stat -c%s "openweather.json")
+actuSIZE=$(stat -c%s "actuweather.json")
+
+echo "Open: $openSIZE"
+echo "Actu: $actuSIZE"
+
+# new
+openMAX=10000
+actuMAX=380
+[ $openSIZE -lt $openMAX ] && echo "open replaced by backup"
+[ $actuSIZE -lt $actuMAX ] && echo "actu replaced by backup"
+[ $openSIZE -ge $openMAX ] && echo "open has good size"
+[ $actuSIZE -ge $actuMAX ] && echo "actu has good size"
+[ $openSIZE -lt $openMAX ] && mv openweather.backup openweather.json
+[ $actuSIZE -lt $actuMAX ] && mv actuweather.backup actuweather.json
+
+./put-openweather
