@@ -1,12 +1,12 @@
 #!/bin/sh
 
-cd /home/pi/siSH
+cd /home/pi/si-smarthome
 
 mv openweather.json openweather.backup
 mv actuweather.json actuweather.backup
 
-wget -O openweather.json http://api.openweathermap.org/data/2.5/forecast?id=2000008\&appid=70000000000000000000000000000004\&mode=json\&units=metric\&cnt=40
-wget -O actuweather.json http://api.openweathermap.org/data/2.5/weather?id=2000008\&appid=70000000000000000000000000000004\&mode=json\&units=metric
+wget -O openweather.json http://api.openweathermap.org/data/2.5/forecast?id=${OW_id}\&appid=${OW_ap}\&mode=json\&units=metric\&cnt=40
+wget -O actuweather.json http://api.openweathermap.org/data/2.5/weather?id=${OW_id}\&appid=${OW_ap}\&mode=json\&units=metric
 
 openSIZE=$(stat -c%s "openweather.json")
 actuSIZE=$(stat -c%s "actuweather.json")

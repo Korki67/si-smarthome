@@ -4,7 +4,7 @@ if [ "$user" != "www-data" ]; then
   echo Requires user www-data
   echo exit with error
   echo
-  exit 1
+#  exit 1
 fi
 
 #

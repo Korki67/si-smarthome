@@ -26,9 +26,9 @@ offset = H3 - (time.localtime()[3] // 3)
 h = time.strftime("%H", time.gmtime(data["list"][offset + 0*8]["dt"]))
 h = time.strftime("%H", time.localtime(data["list"][offset + 0*8]["dt"]))
 
-if h <> "12":
-  print "Error h = ", h
-  print "Error might be correctet"
+if h != "12":
+  print("Error h = ", h)
+  print("Error might be correctet")
 
 if h == "09":
   offset = offset + 1
@@ -39,11 +39,6 @@ if h == "06":
   offset = offset + 2
 if h == "18":
   offset = offset - 2
-
-# print "dt     = ", data["list"][offset + 0*8]["dt"]
-# print "time   = ", time.localtime(data["list"][offset + 0*8]["dt"])
-# print "%H     = ", h
-# print "offset = ", offset
 
 fobj = open('openweather.xml', 'w')
 Nobj = open('weather.xml',     'w')
@@ -88,7 +83,7 @@ fobj.write("<yw_text_0>" + Descr + "</yw_text_0>\n")
 Nobj.write("<w_text_0>" + Descr + "</w_text_0>\n")
 
 code = data["list"][1]["weather"][idx]["id"]
-print "new ", code
+print("new ", code)
 fobj.write("<yw_num_0>" + str(code)  + "</yw_num_0>\n")
 Nobj.write("<w_num_0>" + str(code)  + "</w_num_0>\n")
 
@@ -195,7 +190,7 @@ except:
 fobj = open('eib.xml', 'w')
 
 code = data["weather"][idx]["id"]
-print "new ", code
+print("new ", code)
 fobj.write("<eib_num>" + str(code) + "</eib_num>\n")
 Nobj.write("<w_num>" + str(code) + "</w_num>\n")
 

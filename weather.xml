@@ -1,9 +1,9 @@
 <w_date_0>2023-04-03 21:00:00</w_date_0>
 <w_day_0>Mon 03.</w_day_0>
-<w_T_outside_0>4.1</w_T_outside_0>
-<w_humi_0>57</w_humi_0>
+<w_T_outside_0>5.2</w_T_outside_0>
+<w_humi_0>50</w_humi_0>
 <w_min_0>4.1</w_min_0>
-<w_max_0>4.1</w_max_0>
+<w_max_0>6.2</w_max_0>
 <w_code_0>01d</w_code_0>
 <w_text_0>clear sky</w_text_0>
 <w_num_0>800</w_num_0>
@@ -34,9 +34,9 @@
 <w_sunrise>1680498275</w_sunrise>
 <w_sunset>1680545195</w_sunset>
 <w_num>800</w_num>
-<w_T_outside>10.2</w_T_outside>
-<w_beaufort>1.3</w_beaufort>
-<w_date>2023-04-03 15:20:02</w_date>
-<w_time>1680528002</w_time>
+<w_T_outside>10.5</w_T_outside>
+<w_beaufort>1.2</w_beaufort>
+<w_date>2023-04-03 16:03:40</w_date>
+<w_time>1680530620</w_time>
 <w_code>01d</w_code>
 <w_text>clear sky</w_text>
